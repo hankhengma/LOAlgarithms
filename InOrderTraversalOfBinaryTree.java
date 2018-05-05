@@ -8,7 +8,7 @@
 
 // }
 
-
+/******************题目要求不可以用recursion*************
 public class Solution {
 	public List<Integer> inOrder(TreeNode root) {
 		if (root == null) {
@@ -17,10 +17,11 @@ public class Solution {
 
 		List<Integer> result = new ArrayList<>();
 		TreeNode left = inOrder(root.left);
-		result = result.add(left);
-		result = result.add(root);
+		result = result.add(left.key);
+		result = result.add(root.key);
 		TreeNode right = inOrder(root.right);
-		result.add(right);
+		result.add(right.key);
 		return result;
 	}
 }
+*****************************************************/
