@@ -25,3 +25,34 @@ public class Solution {
 	}
 }
 *****************************************************/
+
+public class Solution {
+	public List<Integer> inOrder(TreeNode root) {
+		if (root == null) {
+			return root;
+		}
+
+		List<Integer> result = new ArrayList<>();
+		// use a buffer to store the "root" node
+		// the left side of the root node is the left child tree
+		// the right side idea is same as the left side.
+		Deque<TreeNode> buffer = new LinkedList<>();
+		TreeNode cur = root;
+		while (cur != null || !buffer.isEmpty()) {
+			// store the root node;
+			// find the root.left and insert it into the buffer;
+			// the left node is always inserted at the front of the buffer;
+			if (cur != null) {
+				buffer.addFirst(cur);
+				cur = cur.left;
+			}
+			else {
+				// buffer.pollLast(); -- as the most left node was stored at the most front
+				cur = buffer.pollFirst();
+				result.add(cur.key);
+				cur = cur.right;
+			}
+		}
+		return result;
+	}
+}
