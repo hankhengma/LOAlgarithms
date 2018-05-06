@@ -1,7 +1,7 @@
 /*********************************
-public class ListNode {
-	public int value;
-	public ListNode next;
+ class ListNode {
+	int value;
+	ListNode next;
 	public ListNode(int value) {
 		this.value = value;
 		next = null;
@@ -20,7 +20,7 @@ public class Stack {
 		head = null;
 	}
 
-	private void push(int value) {
+	public void push(int value) {
 		ListNode<Integer> node = new ListNode<Integer>(value);
 		if (head == null) {
 			head = node;
@@ -31,7 +31,7 @@ public class Stack {
 		//size++;
 	}
 
-	private Integer pop() {
+	public Integer pop() {
 		ListNode<Integer> node = new ListNode<>();
 		if (head == null) {
 			return null;
@@ -43,7 +43,7 @@ public class Stack {
 		return node.value;
 	}
 
-	private Integer top() {
+	public Integer top() {
 		if (head == null) {
 			return null;
 		}
