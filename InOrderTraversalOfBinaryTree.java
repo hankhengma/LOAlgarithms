@@ -46,6 +46,9 @@ public class Solution {
 				buffer.addFirst(cur);
 				cur = cur.left;
 			}
+			// if the left side has been finished;
+			// print out the first element in the buffer;
+			// the last element is the root node;
 			else {
 				// buffer.pollLast(); -- as the most left node was stored at the most front
 				cur = buffer.pollFirst();
