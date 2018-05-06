@@ -25,25 +25,29 @@ public class Queue {
 		ListNode<Integer> node = new ListNode<>(value);
 		if (head == null) {
 			head = node;
+			tail = head;
 		}
-		else if(tail == null) {
-			tail = node;
+		else {
+			tail.next = node;
+			tail = tail.next;
 		}
-
-		tail.next = node;
-		tail = node;
 		return true;
 	}
 
 	// return the head of the queue and remove it from the queue
 	public Integer poll() {
-		if(head == null && head == tail) {
+		if(head == null) {
 			return null;
 		}
 
 		ListNode<Integer> node = new ListNode<>();
 		node = head;
 		head = head.next;
+		// check if the queue is empty after head move to the next;
+		// if empty head = tail = null;
+		if (head == null) {
+			tail = null;
+		}
 		node.next = null;
 		return node.value;
 	}
