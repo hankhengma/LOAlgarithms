@@ -61,4 +61,5 @@ public class Practice{
 		// prev.left.right = prev.right;
 		prev.left = prev.left.right;
 	}
+
 }
