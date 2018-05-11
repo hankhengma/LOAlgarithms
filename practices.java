@@ -88,11 +88,14 @@ public class Practice{
 		ListNode fast = head;
 		ListNode slow = head;
 
-		while (fast != null || slow != null) {
+		// while (fast != null || slow != null) {
+		// 	slow = slow.next;
+		// 	fast = slow.next;
+		// }
+		while (fast.next != null && fast.next.next != null) {
 			slow = slow.next;
-			fast = slow.next;
+			fast = fast.next.next;
 		}
 		return slow;
-
 	}
 }
