@@ -62,4 +62,37 @@ public class Practice{
 		prev.left = prev.left.right;
 	}
 
+	// revers a linked list;
+	public ListNode reverse(ListNode head) {
+		ListNode prev = null;
+		if (head == null) {
+			return head;
+		}
+
+		while (head != null) {
+			ListNode next = head.next;
+			head.next = prev;
+			head = next;
+			prev = head;
+		}
+		return prev;
+	}
+
+	// find the middle node of a linked list
+	// using fast&slow pointer;
+	public ListNode findMiddle(ListNode head) {
+		if (head == null) {
+			return head;
+		}
+
+		ListNode fast = head;
+		ListNode slow = head;
+
+		while (fast != null || slow != null) {
+			slow = slow.next;
+			fast = slow.next;
+		}
+		return slow;
+
+	}
 }
