@@ -18,9 +18,31 @@ A = {1, 4, 6, 8}, T = 3, K = 3, return {4, 1, 6}
 public class Solution {
   	public int[] kClosest(int[] array, int target, int k) {
     	// Write your solution here
+      int[] result = new int[k]; 
+      if (array == null || array.length == 0) {
+        return result;
+      }
+
+      int smallestLargerIndex = smallestLarger(array, 0, array.length - 1, target);
+      int prev = smallestLargerIndex - 1;
+      int next = smallestLargerIndex + 1;
+      result[0] = array[smallestLargerIndex];
+
+      for (int i = 1; i < k; i++) {
+        if ((target - array[prev]) < (array[next] - target)) {
+          result[i] = array[prev];
+          prev--;
+        } else {
+          result[i] = array[next];
+          next++;
+        }
+      }
+
+
+
   	}
 
-	private int largestSmaller(int[] array, int left, int right) {
+	private int smallestLarger(int[] array, int left, int right, int target) {
   		int mid = left + (right - left) / 2;
 
   		while (left < right - 1) {
@@ -34,10 +56,10 @@ public class Solution {
   				right = mid;
   			}
   		}
+
   		if (array[right] >= target && array[left] <= target) {
   			return right;
   		}
-
 	}
 
 }

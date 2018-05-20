@@ -26,7 +26,7 @@ public class Solution {
 			}
 			else if (root.left != null) {
 				stack.offerFist(root.left);
-				root = root.left;
+				// root = root.left;
 			}
 		}
 		return result;
