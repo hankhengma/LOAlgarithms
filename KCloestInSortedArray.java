@@ -23,26 +23,21 @@ public class Solution {
         return result;
       }
 
-      int smallestLargerIndex = smallestLarger(array, 0, array.length - 1, target);
-      int prev = smallestLargerIndex - 1;
-      int next = smallestLargerIndex + 1;
-      result[0] = array[smallestLargerIndex];
+      int left = largestSmallerEqual(array, 0, array.length - 1, target);;
+      int right = left + 1;
 
       for (int i = 1; i < k; i++) {
-        if ((target - array[prev]) < (array[next] - target)) {
-          result[i] = array[prev];
-          prev--;
+        // condition 1: left--; why? right is out of bound or left is closer to the target than right;
+        // condition 2: right++; why? the opposite to the condision 1;
+        if (right > array.length - 1 || left >= 0 && target - array[left] < array[right] - target) {
+          result[i] = array[left--];
         } else {
-          result[i] = array[next];
-          next++;
+          result[i] = array[right++];
         }
       }
-
-
-
   	}
 
-	private int smallestLarger(int[] array, int left, int right, int target) {
+	private int largestSmallerEqual(int[] array, int left, int right, int target) {
   		int mid = left + (right - left) / 2;
 
   		while (left < right - 1) {
@@ -57,9 +52,17 @@ public class Solution {
   			}
   		}
 
-  		if (array[right] >= target && array[left] <= target) {
-  			return right;
-  		}
+      // check the right is smaller or larger than target
+      // cause we need to find the largest smaller/qual than target;
+      if (array[right] <= target) {
+        return right;
+      }
+
+      if (array[left] <= target) {
+        return left;
+      }
+      // cannot find anyone.
+      return -1;
 	}
 
 }
