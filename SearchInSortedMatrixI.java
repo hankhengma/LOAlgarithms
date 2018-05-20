@@ -30,4 +30,6 @@ public class Solution {
 
 
 	}
+
+	private int searchHelper(int[][] matrix, int col, int row)
 }
