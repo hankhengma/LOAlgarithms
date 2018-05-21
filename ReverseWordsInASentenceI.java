@@ -28,8 +28,11 @@ public class Solution {
 		while (fast < temp.length) {
 			if (temp[fast] == ' ') {
 				reverseHelper(temp, slow, fast - 1);
-			}	
-			slow++;
+				slow = fast + 1;
+			}
+			if (fast == temp.length - 1) {
+				reverseHelper(temp, slow, fast);
+			}
 			fast++;
 		}
 		return new String(temp);
