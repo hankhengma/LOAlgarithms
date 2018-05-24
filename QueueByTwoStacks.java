@@ -13,7 +13,7 @@ isEmpty() should return true if there is no element buffered in the queue, false
 
 public class Solution {
   private Stack<Integer> s1 = new Stack<Integer>(); // input
-  private Stack stack2<Integer> s2 = new Stack<Integer>(); // buffer && output
+  private Stack<Integer> s2 = new Stack<Integer>(); // buffer && output
   private int size = 0;
 
   public Solution() {
