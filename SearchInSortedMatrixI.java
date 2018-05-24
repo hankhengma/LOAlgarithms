@@ -8,7 +8,7 @@ public class Solution {
 		int left = 0;
 		int right = rows * cols - 1;
 
-		while (left < right) {
+		while (left <= right) {
 			int mid = left + (right - left) / 2;
 
 			int row = mid / cols;
@@ -17,9 +17,9 @@ public class Solution {
 			if (matrix[row][col] == target) {
 				return new int[]{row, col};
 			} else if (matrix[row][col] > target) {
-				right = mid;
+				right = mid - 1;
 			} else {
-				left = mid;
+				left = mid + 1;
 			}
 		}
 		return new int[]{-1, -1};
