@@ -33,10 +33,10 @@ public class Solution {
 
 		while (cur != null) {
 			if (target =< cur.value) {
-				larger.next = ;
+				curLarger.next = head;
 				curLarger = curLarger.next;
 			} else {
-				smaller.next = head;
+				curSmaller.next = head;
 				curSmaller = curSmaller.next;
 			}
 			cur = cur.next;
