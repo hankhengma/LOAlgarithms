@@ -1,3 +1,13 @@
+/**********
+Time: O(nlogn)
+Space: O(1)
+*********/
+
+
+
+
+
+
 public class Solution {
 	public int[] quickSort(int[] array) {
 		int n = array.length;

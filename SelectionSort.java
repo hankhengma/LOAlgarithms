@@ -1,3 +1,7 @@
+//Time: O(n^2)
+//Space: O(1)
+
+
 public class Solution {
 	public int[] select(int[] array) {
 		if (array == null || array.length == 0) {

@@ -1,3 +1,5 @@
+// Time: O(nlogn)
+// Space: O(n)
 public class Solution {
 
 	public int[] mergeSort(int[] array) {
