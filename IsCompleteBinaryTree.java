@@ -1,3 +1,6 @@
+// time: O(logn)
+// space: O(n)
+
 public class Solution {
 	public boolean isComplete(TreeNode root) {
 		if (root == null) {
