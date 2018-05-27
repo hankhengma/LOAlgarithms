@@ -9,7 +9,8 @@ class TreeNode {
 	}
 }
 ********************************/
-
+// Time: O(logn)
+// Space: O(logn)
 public class PrintBinaryTree {
 
 	public void print(TreeNode root) {
