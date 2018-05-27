@@ -1,4 +1,4 @@
-public class QuickSort {
+public class Solution {
 	public int[] quickSort(int[] array) {
 		int n = array.length;
 		if (n == 0 || array == null) {
@@ -10,7 +10,7 @@ public class QuickSort {
 	}
 
 	public void quickSortHelper(int[] array, int left, int right) {
-		if (left == right) {
+		if (left >= right) {
 			return;
 		}
 
