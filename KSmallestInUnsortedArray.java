@@ -7,13 +7,13 @@ public class Solution{
 			return new int[0];
 		}
 
-		PriorityQueue<Integer> maxHeap = new PriorityQueue<>(k, new Comparator<Integer>() {
+		PriorityQueue<Integer> maxHeap = new PriorityQueue<>(k, new Comparator<Cell>() {
 			@Override
-			public int compare(Integer o1, Integer o2) {
-				if (o1.equals(o2)) {
+			public int compare(Cell c1, Cell c2) {
+				if (c1.value.equals(o2.value)) {
 					return 0;
 				}
-				return o1 > o2 ? -1 : 1;
+				return o1.value > o2.value ? -1 : 1;
 			}
 		});
 
