@@ -6,22 +6,22 @@ public class Solution {
 		if (array.length == 0 || array == null) {
 			return array;
 		}
-
-		mergeSortHelper(array, 0, array.length - 1);
+		int[] helperArray = new int[array.length];
+		mergeSortHelper(array, helperArray, 0, array.length - 1);
 		return array;
 	}
 
-	private void mergeSortHelper(int[] array, int left, int right) {
+	private void mergeSortHelper(int[] array, int[] helperArray, int left, int right) {
 		if (left >= right) return;
 
 		int mid = left + (right - left) / 2;
-		mergeSortHelper(array, left, mid);
-		mergeSortHelper(array, mid + 1, right);
-		merge(array, left, mid, right);
+		mergeSortHelper(array, helperArray, left, mid);
+		mergeSortHelper(array, helperArray, mid + 1, right);
+		merge(array, helperArray, left, mid, right);
 	}
 
-	private void merge(int[] array, int left, int mid, int right) {
-		int[] helperArray = new int[array.length];
+	private void merge(int[] array, int[] helperArray, int left, int mid, int right) {
+		
 		for (int i = left; i <= right; i++) {
 			helperArray[i] = array[i];
 		}
