@@ -3,11 +3,6 @@ Time: O(nlogn)
 Space: O(1)
 *********/
 
-
-
-
-
-
 public class Solution {
 	public int[] quickSort(int[] array) {
 		int n = array.length;
@@ -24,28 +19,28 @@ public class Solution {
 			return;
 		}
 
-		int i = left, j = right - 1;
-		int pivotIndex = (int)(Math.random()*(right - left + 1));
+		int leftStart = left, rightStart = right - 1;
+		// int pivotIndex = (int)(Math.random()*(right - left + 1));
+		int pivotIndex = right;
 		int pivot = array[pivotIndex];
+		// swap(array, pivotIndex, right);
 
-		swap(array, pivotIndex, right);
-
-		while (i <= j) {
-			if (array[i] < pivot) {
-				i++;
+		while (leftStart <= rightStart) {
+			if (array[leftStart] < pivot) {
+				leftStart++;
 			}
 			else if (array) {
-				j--;
+				rightStart--;
 			}
 			else {
-				swap(array, i, j);
+				swap(array, leftStart, rightStart);
 			}
 		}
 
-		swap(array, i, right);
+		swap(array, leftStart, pivotIndex);
 
-		quickSortHelper(array, left, i - 1);
-		quickSortHelper(array, i + 1, right);
+		quickSortHelper(array, left, leftStart - 1);
+		quickSortHelper(array, leftStart + 1, right);
 		
 	}
 
