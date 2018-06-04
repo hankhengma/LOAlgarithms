@@ -31,6 +31,7 @@ public class DictionaryProblem {
 			// No cut;
 			if (hashset.contains(word.substring(0,i))) {
 				composed[i] = true;
+				continue; // if not cut substring can be composed by dic NO NEED to check the previous substrings.
 			}
 
 			for (int j = 1; j < i; j++) {
