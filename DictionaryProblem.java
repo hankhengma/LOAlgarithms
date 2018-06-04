@@ -1,16 +1,47 @@
 public class DictionaryProblem {
 /***********************************************************
-	// dictonary: {bob, rob, cat};
-	// word1: bcoabt
-	// word2: bobcatrob
-	// base case: m[0] = false;
-		// m[1] = false;
-		// m[2] = false;
-		// m[3] need to check dictionary;
-		// m[4] = false; the lenght isn't correct;
-	// Induction rule:
-		// m[i] = m[i-3] && current three letters; -->
+	dictonary: {bob, rob, cat};
+	word1: bcoabt
+	word2: bobcatrob
+	base case: m[0] = false;
+		m[1] = 'b' --> false;
+		m[2] = "bo" --> false;
+			case 1. 'b' | 'o'
+				OR
+			case 2. "bo";
+		m[3] == "bob"
+			case 1: "bo" | 'b'
+				OR
+			case 2: 'b' | "bo"
+				OR
+			case 3: "bob"
+	induction rule:
+		m[i] --> no cut
+				OR
+			--> m[i-1] && m[substring(j,i)]
 **********************************************************/
+	public boolean isComposedIII(String word, List<String> dictionary) {
+		if (word == null || dictionary == null || word.isEmpty() || dictionary.isEmpty()) {
+			return null;
+		}
+		Set<String> hashset = new HashSet<>().addAll(dictionary);
+		boolean[] composed = new boolean[word.length() + 1];
+
+		for (int i = 1; i <= word.length(); i++) {
+			// No cut;
+			if (hashset.contains(word.substring(0,i))) {
+				composed[i] = true;
+			}
+
+			for (int j = 1; j < i; j++) {
+				if (composed[j] && hashset.contains(word.substring(j, i))) {
+					m[i] = true;
+					break;
+				}
+			}
+		}
+		return composed(word.length());
+	}
 	// unverified
 	public boolean isComposedI(String words, List<String> dictionary) {
 		
@@ -33,7 +64,7 @@ public class DictionaryProblem {
 		}
 		return canBeComposed[wordsLength - 1];
 	}
-	
+
 	// Verified but can be optimized
 	public boolean isComposedII(String words, List<String> dictionary) {
 		
