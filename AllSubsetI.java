@@ -1,6 +1,9 @@
 public class Solution {
 	public List<String> subSets(String set) {
 		// No Duplicates
+		// algorithm: DFS;
+		// Time: Ologn;
+		// space: On;
 		List<String> result = new ArrayList<>();
 
 		if (set == null) {
