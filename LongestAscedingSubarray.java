@@ -1,7 +1,8 @@
 public class LongestAscedingSubarray {
 	public int subarray(int[] array) {
-		if (array == null || array.length == 0) {
-			return array;
+		// Assumption: array is not null;
+		if (array.length == 0) {
+			return 0;
 		}
 		
 		int subarrayLength = 1;
@@ -12,9 +13,9 @@ public class LongestAscedingSubarray {
 		// if array[i] > array[i - 1] sublength + 1;
 		// otherwise sublength sets to 1;
 		for (int i = 1; i < array.length; i++) {
-			if (array[i] < array[i - 1]) {
-				subarrayLength += 1;
-				if (subarrayLength >= globalMax) {
+			if (array[i] > array[i - 1]) {
+				// subarrayLength += 1;
+				if (++subarrayLength > globalMax) {
 					globalMax = subarrayLength;
 				}
 			} else {
