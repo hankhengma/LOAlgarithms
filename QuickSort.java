@@ -33,7 +33,7 @@ public class Solution {
 				rightStart--;
 			}
 			else {
-				swap(array, leftStart, rightStart);
+				swap(array, leftStart++, rightStart--);
 			}
 		}
 
