@@ -4,8 +4,10 @@ public class Solution {
     if (array.length == 0 || array == null) {
     	return -1;
     }
-    
-    int left = 0, right = array.length - 1;
+    int arrayLength = array.length;
+    int left = 0;
+    int right = arrayLenght - 1;
+
     while (left < right - 1) {
     	int mid = left + (right - left) / 2;
       
@@ -19,16 +21,13 @@ public class Solution {
       	left = mid;
       }
     }
-    
-    if((array[right] - target) < (target - array[left])) {
-    	return right;
-    }
-    else {
-    	return left;
-    }
+    return Math.abs(target - array[left]) <= Math.abs(array[right] - target) ? left : right;
   }
 }
 
-// 1,3,3,4 t =2;
-// if target exists then return the index of target;
-// if target doesn't exist then find then nearest 2 elements in the array.
+// Algorithm: binary search;
+// Time: OlogN;
+// use binary search to try to find target;
+// if the target exists then return the index;
+// if doesn't findout then use binary search to find out the closest two elements
+// then compare the diffs between left ele and target and right ele with target.
