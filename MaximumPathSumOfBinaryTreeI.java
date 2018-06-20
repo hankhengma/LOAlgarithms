@@ -1,6 +1,6 @@
 public class MaximumPathSumOfBinaryTreeI {
 	public int maxSum(TreeNode root) {
-		int[] max = new int[]{0};
+		int[] max = new int[]{Integer.MIN_VALUE};
 		sumHelper(root, max);
 		return max[0];
 	}
@@ -15,7 +15,7 @@ public class MaximumPathSumOfBinaryTreeI {
 
 		if (root.left != null && root.right != null) {
 			max[0] = Math.max(max[0], leftSum + rightSum + root.value);
-			return max[0] + root.value;
+			return Math.max(leftSum, rightSum) + root.value;
 		}
 		return left == null ? rightSum + root.value : leftSum + root.value;
 	}
