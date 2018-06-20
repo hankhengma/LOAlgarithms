@@ -93,4 +93,30 @@ public class DictionaryProblem {
 		}
 		return composed;
 	}
+
+	public boolean canBreak(String input, String[] dict) {
+    	// Write your solution here
+	    Set<String> set = new HashSet<>();
+	    for (String s : dict) {
+	      set.add(s);
+	    }
+    
+	    boolean[] contains = new boolean[input.length() + 1];
+	    contains[0] = true;
+	    
+	    for (int i = 1; i <= input.length(); i++) {
+      		if (set.contains(input.substring(0, i))) {
+        		contains[i] = true;
+      		} else {
+        		for (int j = i - 1; j >= 1; j--) {
+		          	boolean cur = set.contains(input.substring(j, i)) && contains[j];
+		          	if (cur) {
+             			contains[i] = true;
+             			break;
+          			}
+        		}
+      		}
+    	}
+    	return contains[input.length()];
+  	}
 }

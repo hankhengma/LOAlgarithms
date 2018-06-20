@@ -11,7 +11,7 @@ class Node<K, V> {
 
 	public V getValue() {}
 
-	public void setValue(V value) } {}
+	public void setValue(V value) {}
 
 }
 
@@ -122,21 +122,5 @@ class MyHashMap {
 			
 		}
 		return null;
-	}
-
-
-	public boolean isEmpty() {}
-	public int size() {}
-	public void clear();
-	public V put(K key, V value) {}
-	public V get(K key) {}
-	public V remove(K key) {}
-	public boolean containsKey(K key) {}
-	public boolean containsValue(V value) {}
-
-	private boolean keyEquals(String a, String b) {
-			if (a == null || b == null) {
-				return a == null && b == null;
-			}
 	}
 }
