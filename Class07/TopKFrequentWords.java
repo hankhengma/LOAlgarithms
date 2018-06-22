@@ -3,9 +3,9 @@ public class Solution {
 		if (combo == null) {
 			return new String[0];
 		}
-		String[] result = new String[k];
+		
 		Map<String, Integer> map = getWords(combo);
-		PriorityQueue<Map.Entry<String, Integer>> minHeap = new PriorityQueue<>(k, new Comparator<Map.Entry<String, Integer>>() {
+		PriorityQueue<Map.Entry<String, Integer>> maxHeap = new PriorityQueue<>(k, new Comparator<Map.Entry<String, Integer>>() {
 			@Override
 			public int compare(Map.Entry<String, Integer> e1, Map.Entry<String, Integer> e2) {
 				if (e1.getValue().equals(e2.getValue())) {
@@ -16,16 +16,17 @@ public class Solution {
 		});
 
 		for (Map.Entry<String, Integer> entry : map.entrySet()) {
-			if (minHeap.size() < k) {
-				minHeap.offer(entry);
-			} else if (entry.getValue() > minHeap.peek().getValue()) {
-				minHeap.poll();
-				minHeap.offer(entry);
+			if (maxHeap.size() < k) {
+				maxHeap.offer(entry);
+			} else if (entry.getValue() > maxHeap.peek().getValue()) {
+				maxHeap.poll();
+				maxHeap.offer(entry);
 			}
 		}
-
-		for (int i = minHeap.size() - 1; i >= 0; i++) {
-			result[i] = minHeap.poll();
+		String[] result = new String[maxHeap.size()];
+				
+		for (int i = maxHeap.size() - 1; i >= 0; i++) {
+			result[i] = maxHeap.poll();
 		}
 		return result;
 	}
