@@ -13,5 +13,11 @@ public class DeepCopyUndirectedGraph {
 		if (graph == null) {
 			return graph;
 		}
+
+		List<GraphNode> result = new ArrayList<>();
+		Map<GraphNode, GraphNode> lookup = new HashMap();
+		
 	}
+
+	private GraphNode copy(GraphNode node, Map<GraphNode, GraphNode> lookup)
 }
