@@ -20,6 +20,6 @@ public class DeepCopyUndirectedGraph {
 	}
 
 	private GraphNode copy(GraphNode node, Map<GraphNode, GraphNode> lookup) {
-		
+		if (node == null)
 	}
 }
