@@ -1,3 +1,6 @@
+// Using Array to mimic the stack to reduce space complexity;
+
+
 public class ArrayDeduplicationIV {
 	public int[] dedup(int[] array) {
 		if (array == null || array.length == 0) {
