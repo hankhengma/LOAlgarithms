@@ -36,4 +36,39 @@ public class LargestAndSmallest {
 		}
 		return new int[]{globalSmall, globalLarge};
 	}
+
+	public int[] largestAndSmallestI(int[] array) {
+		if (array == null || array.length == 0) {
+			return array;
+		}
+		int len = array.length;
+		for (int i = 0; i < len / 2; i++) {
+			if (array[i] > array[len - 1 -i]) {
+				swap(array, i, len - 1 - i);
+			}
+		}
+		return new int[]{smallest(array, 0, (len - 1) / 2), largest(array, len / 2, len - 1)};
+	}
+
+	private void swap(int[] array, int a, int b) {
+		int temp = array[a];
+		array[a] = array[b];
+		array[b] = temp;
+	}
+
+	private int largest(int[] array, int start, int end) {
+		int globalLargest = Integer.MIN_VALUE;
+		for (int i = start; i <= end; i++) {
+			globalLargest = globalLargest > array[i] ? globalLargest : array[i];
+		}
+		return globalLargest;
+	}
+
+	private int smallest(int[] array, int start, int end) {
+		int globalSmallest = Integer.MAX_VALUE;
+		for (int i = start; i <= end; i++) {
+			globalSmallest = globalSmallest < array[i] ? globalSmallest : array[i];
+		}
+		return globalSmallest;
+	}
 }
