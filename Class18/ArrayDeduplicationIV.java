@@ -17,7 +17,7 @@ public class ArrayDeduplicationIV {
 				while (fast < array.length && array[slow] == array[fast]) {
 					++fast;
 				}
-				--end;
+				--slow;
 			}
 		}
 		return Arrays.copyOf(array, slow);
