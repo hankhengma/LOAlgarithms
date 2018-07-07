@@ -10,6 +10,7 @@ public class LowestCommonAncestorIV {
 			this.key = key;
 		}
 	}
+	// iteration
 	// find the LCA of two nodes first
 	// use the result to find the LCA with the rest nodes one by one
 	public TreeNode lca(TreeNode root, List<TreeNode> nodes) {
@@ -29,6 +30,22 @@ public class LowestCommonAncestorIV {
             result[0] = findLca(root,nodeArray[i],result[0],result);
         }
         return result[0];
+	}
+
+	// K way together
+	public TreeNode findLcaI(TreeNode root, List<TreeNode> nodes) {
+		Set<TreeNode> set = new HashSet<>(nodes);
+		if (root == null || set.contains(root)) {
+			return root;
+		}
+
+		TreeNode left = findLcaI(root.left, nodes);
+		TreeNode right = findLcaI(root.right, nodes);
+
+		if (left != null && right != null) {
+			return root;
+		}
+		return left == null ? right : left;
 	}
 
 	private TreeNode findLca(TreeNode root, TreeNode n1, TreeNode n2, TreeNode[] result) {
