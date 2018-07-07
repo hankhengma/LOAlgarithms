@@ -49,7 +49,7 @@ public class LowestCommonAncestorIV {
 	}
 
 	private TreeNode findLca(TreeNode root, TreeNode n1, TreeNode n2, TreeNode[] result) {
-		if (root == null || n1 == null || n2 == null) {
+		if (root == null || root == n1 || root == n2) {
 			return root;
 		}
 
