@@ -17,10 +17,11 @@ public class LongestCommonSubstring {
 					} else {
 						common[start][end] = common[start - 1][end - 1] + 1;
 					}
-					if (longest < common[start][end]) {
-						longest = common[start][end];
-						commonEnd = start;
-					}
+					
+				}
+				if (longest < common[start][end]) {
+					longest = common[start][end];
+					commonEnd = start;
 				}
 			}
 		}
