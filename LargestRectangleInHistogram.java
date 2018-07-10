@@ -5,13 +5,21 @@ public class LargestRectangleInHistogram {
 		int result = 0;
 
 		for (int i = 0; i < array.length; i++) {
-			while (!stack.isEmpty() && array[stack.top()] >= array[i]) {
-				int height = array[stack.top()];
-				int leftBoard = stack.pop() + 1;
+			// deal with the last element of the array
+			// otherwise the last element will be skipped off.
+			int cur = i >= array.length ? 0 : array[i];
+			while (!stack.isEmpty() && array[stack.peekFirst()] >= array[i]) {
+				// the while loop keeps poping the top element of the stack 
+				// until the top element of the stack is less than array[i];
+				int height = array[stack.pollFirst()];
+				// left board determination:
+				// if the stack is empty: it means array[i] is smaller than all the elements in the stack;
+				// otherwise: it means array[i] is larger than someone in the stack;
+				int leftBoard = stack.isEmpty() ? 0 : stack.peekFirst() + 1;
 				result = Math.max(result, height * (i - left));
 
 			}
-			stack.add(i);
+			stack.offerFirst(i);
 		}
 		return result;
 	}
