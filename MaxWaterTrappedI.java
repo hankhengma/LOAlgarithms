@@ -3,7 +3,19 @@ public class MaxWaterTrappedI {
         int left = 0;
         int right = array.length - 1;
         int result = 0;
-
+        int lMax = array[left];
+        int rMax = array[right];
+        while (left < right) {
+            // who smaller who moves;
+            lMax = Math.max(lMax, array[left]);
+            rMax = Math.max(rMax, array[right]);
+            if (lMax < rMax) {
+                result += lMax - array[left];
+            } else {
+                result += rMax - array[right];
+            }
+        }
+        /*****************************************************
         for (int i = 0; i < array.length; i++) {
             int leftI = i - 1;
             int rightI = i + 1;
@@ -18,9 +30,10 @@ public class MaxWaterTrappedI {
             }
             int top = Math.min(leftMax, rightMax);
             result += top - array[i] < 0 ? 0 : top - array[i];
-        }
-        return result;
-	}
+        } // time: On^2;
+        ********************************************************/
+        return result; // time : On
+	} 
 }
 
 
