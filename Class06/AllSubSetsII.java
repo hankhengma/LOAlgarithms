@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class AllSubSetsII {
+	// subsets with duplicate letters
 	public List<String> subsets(String set) {
 		List<String> result = new ArrayList<>();
 		if (set == null) {
