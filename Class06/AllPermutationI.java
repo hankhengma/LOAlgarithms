@@ -1,8 +1,9 @@
 public class Solution {
 	// algorithm: DFS;
 	// as it finds all combination of the set;
-	// time: Ologn;
+	// time: On!;
 	// space: On;
+	// O(1 + n + n*(n-1) + n*(n-1)*(n-2) +…+ n!)
 	public List<String> permutations(String set) {
 		List<String> result = new ArrayList<>();
 		if (set == null) {

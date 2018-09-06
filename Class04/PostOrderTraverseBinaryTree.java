@@ -27,17 +27,17 @@ public class PostOrderTraverseBinaryTree {
 				} else if (cur.right != null) {
 					stack.offerFirst(cur.right);
 				} else {
-					result.add(stack.pollFirst().value);
+					result.add(stack.pollFirst().val);
 				}
 			} else if (prev == cur.left) {
 				// left subtree has been traversed
 				if (cur.right != null) {
 					stack.offerFirst(cur.right);
 				} else {
-					result.add(stack.pollFirst().value);
+					result.add(stack.pollFirst().val);
 				}
 			} else if (prev == cur.right) {
-				result.add(stack.pollFirst().value);
+				result.add(stack.pollFirst().val);
 			}
 			prev = cur;
 		}

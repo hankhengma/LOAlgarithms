@@ -19,7 +19,7 @@ public class Solution {
 		int rightIndex = right;
 
 		while (leftIndex <= rightIndex) {
-			if (array[leftIndex] > 0) {
+			if (array[leftIndex] != 0) {
 				leftIndex++;
 			} else if (array[rightIndex] == 0) {
 				rightIndex--;

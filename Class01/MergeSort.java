@@ -41,11 +41,4 @@ public class Solution {
 			array[left++] = helperArray[leftIndexOfHelper++];
 		}
 	}
-
-	private void swap(int[] array, int a, int b) {
-		int temp;
-		temp = array[b];
-		array[b] = array[a];
-		array[a] = temp;
-	}
 }

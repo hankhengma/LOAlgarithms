@@ -29,7 +29,7 @@ public class Solution {
 			if (array[leftStart] < pivot) {
 				leftStart++;
 			}
-			else if (array) {
+			else if (array[rightStart] >= pivot) {
 				rightStart--;
 			}
 			else {

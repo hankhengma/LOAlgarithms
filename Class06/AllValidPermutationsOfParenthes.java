@@ -42,7 +42,7 @@ public class AllValidPermutationsofParenthes {
 		return result;
 	}
 
-	validParenthesesIHelper(StringBuilder sb, int left, int right, List<String> result) {
+	private void validParenthesesIHelper(StringBuilder sb, int left, int right, List<String> result) {
 		if (left == 0 && right == 0) {
 			result.add(sb.toString);
 			return;

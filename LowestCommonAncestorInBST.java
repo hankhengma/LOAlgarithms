@@ -20,7 +20,6 @@ public class LowestCommonAncestorInBST {
 			return lowestCommonAncestor(root.left, a, b);
 		} else {
 			return root;
-		}
-		
+		}		
 	}
 }

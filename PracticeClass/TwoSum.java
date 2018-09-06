@@ -20,11 +20,15 @@ public class TwoSum {
 		int fast = nums.length - 1;
 
 		while (slow < fast - 1) {
-			sum = nums[slow++] + nums[fast--];
+			sum = nums[slow] + nums[fast];
 			if (sum == target) {
 				result[0] = slow;
 				result[1] = fast;
 				return result;
+			} else if (sum < target) {
+				slow++;
+			} else {
+				fast--;
 			}
 		}
 		return null;
