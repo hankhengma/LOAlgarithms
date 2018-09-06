@@ -29,6 +29,6 @@ public class Solution {
         if (!hashmap.containsKey(K)) {
             hashmap.put(K, fibonacci(K - 1) + fibonacci(K - 2));
         }
-        return hashmap.get(K);
+        return hashmap.getValue(K);
     }
 }
