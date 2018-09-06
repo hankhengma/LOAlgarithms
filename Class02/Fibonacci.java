@@ -2,6 +2,8 @@ import java.util.*;
 
 public class Solution {
     // Dynamic Programming
+    // Time: O(k);
+    // Space: O(k);
     public long fibonacci(int K) {
         // Write your solution here
         if (K <= 0) {
@@ -19,6 +21,8 @@ public class Solution {
     }
 
     // recursion + memorization
+    // Time: O(k);
+    // Space: O(k);
     public long fibonacci(int K) {
         if (K < 2) {
             return K;
