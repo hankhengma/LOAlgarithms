@@ -26,4 +26,35 @@ public class PalindromableString {
 			return true;
 		}
 	}
+
+	public boolean palindromableII(String str) {
+		if (str == null || str.length() == 0) {
+			return true;
+		}
+
+		Map<Character, Integer> countMap = new HashMap<>();
+		char[] strArr = str.toCharArray();
+		for (Character c : strArr) {
+			if (!countMap.containsKey(c)) {
+				countMap.put(c, 1);
+			} else {
+				Interger count = countMap.get(c);
+				count += 1;
+				countMap.put(c, count);
+			}
+		}
+
+		int countOdds = 0;
+		for (Map.Entry<Character, Integer> entry: countMap.entrySet()) {
+			if (entry.getValue() % 2 != 0) {
+				countOdds += 1;
+			}
+		}
+
+		if (countOdds > 1) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 }
