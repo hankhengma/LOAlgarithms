@@ -18,23 +18,27 @@ m[i] presents the max profit till ith day.
 if a[i] - a[globalMin] > m[i] m[i] = max()
 **************************/
 public class BuyStockI {
-	public int maxProfit(int[] array) {
-		int globalMax = 0;
+	public int[] maxProfit(int[] array) {
+		int maxProfit = 0;
+        int globalMin = array[0];
+        int buyIndex = 0;
+        int sellIndex = 0;
 
         if (array == null || array.length == 0) {
-            return globalMax;
+            return new int[]{maxProfit, 0, 0};
         }
 
-        int[] max = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+        	if (array[i] < globalMin) {
+                globalMin = array[i];
+                buyIndex = i;
+            }
+            if (maxProfit < array[i] - min) {
+                sellIndex = i;
+                maxProfit = array[i] - min;
+            }
 
-        for (int i = 1; i < array.length; i++) {
-        	int cur;
-        	for (int j = i - 1; j >= 0; j--) {
-        		cur = Math.max(cur, a[i] - a[j]);
-        		globalMax = Math.max(globalMax, cur);
-        	}
-        	m[i] = Math.max(globalMax, cur);
         }
-        return globalMax;
+        return new int[]{maxProfit, buyIndex, sellIndex};
     }
 }
