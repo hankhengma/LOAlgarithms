@@ -14,34 +14,34 @@ public class Solution {
 		return array;
 	}
 
-	public void quickSortHelper(int[] array, int left, int right) {
+	private void quickSortHelper(int[] array, int left, int right) {
 		if (left >= right) {
 			return;
 		}
 
-		int leftStart = left, rightStart = right - 1;
-		// int pivotIndex = (int)(Math.random()*(right - left + 1));
-		int pivotIndex = right;
-		int pivot = array[pivotIndex];
-		// swap(array, pivotIndex, right);
+		
+		int pivotIndex = findPivot(array, left, right);
+		quickSortHelper(array, left, pivotIndex - 1);
+		quickSortHelper(array, pivotIndex + 1, right);		
+	}
 
-		while (leftStart <= rightStart) {
-			if (array[leftStart] < pivot) {
-				leftStart++;
-			}
-			else if (array[rightStart] >= pivot) {
-				rightStart--;
-			}
-			else {
-				swap(array, leftStart++, rightStart--);
+	private int findPivot(int[] array, int left, int right) {
+		int pivotIndex = (int)Math.random() * (right - left + 1) + left;
+		int pivot = array[pivotIndex];
+		int start = left;
+		int end = right - 1;
+
+		while (start <= end) {
+			if (array[start] < pivot) {
+				++start;
+			} else if (array[end] >= pivot) {
+				--end;
+			} else {
+				swap(array, start++, end--);
 			}
 		}
-
-		swap(array, leftStart, pivotIndex);
-
-		quickSortHelper(array, left, leftStart - 1);
-		quickSortHelper(array, leftStart + 1, right);
-		
+		swap(array, start, right);
+		return start;
 	}
 
 	private void swap(int[] array, int a, int b) {
